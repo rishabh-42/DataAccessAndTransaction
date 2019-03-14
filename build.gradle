@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group 'com.demo'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.4'
+
+    compile group: 'org.springframework', name: 'spring-jdbc', version: '3.1.0.RELEASE'
+
+    // https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp
+    compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.2.2'
+// https://mvnrepository.com/artifact/org.springframework/spring-orm
+    
+
+}
