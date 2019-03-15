@@ -1,4 +1,4 @@
-package answer10and11;
+package answer12and13;
 
 
 import javax.persistence.Entity;
@@ -7,8 +7,9 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
-@Table(name = "user")
+@Table(name = "user2")
 public class User {
+
 
     @Id
     int id;
@@ -18,6 +19,7 @@ public class User {
     String password;
     Integer age;
     Date dob;
+
 
     public String getName() {
         return name;
