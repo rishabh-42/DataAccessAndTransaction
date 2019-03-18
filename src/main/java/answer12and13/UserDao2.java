@@ -17,12 +17,12 @@ public class UserDao2 {
     @Autowired
     UserDao3 userDao3;
 
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Transactional(propagation = Propagation.REQUIRED)
     public void insert() {
         String sql = "INSERT INTO user2 (username,password,name,age,dob)VALUES(?,?,?,?,?)";
         jdbcTemplate.update(sql, new Object[]{
                 "abc", "abc", "abc", 2, new Date()
         });
-//        throw new RuntimeException();
+        throw new RuntimeException();
     }
 }

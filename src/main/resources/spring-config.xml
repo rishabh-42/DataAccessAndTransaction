@@ -27,7 +27,7 @@
     </bean>
 
     <bean id="singleConnectionDataSource" class="org.springframework.jdbc.datasource.SingleConnectionDataSource">
-        <property name="url" value="jdbc:mysql://localhost:3306/test"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/test?useSSL=false"/>
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="username" value="rishabh"/>
         <property name="password" value="Rish@bh42"/>
@@ -52,4 +52,8 @@
         </property>
     </bean>
 
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <tx:annotation-driven transaction-manager="txManager" />
 </beans>

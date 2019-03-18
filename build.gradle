@@ -12,16 +12,22 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
-    compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.4'
+    dependencies {
+        compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.46'
+        compile group: 'org.springframework', name: 'spring-core', version: '5.0.2.RELEASE'
+        compile group: 'org.springframework', name: 'spring-context', version: '5.0.2.RELEASE'
+        compile group: 'org.springframework', name: 'spring-tx', version: '5.1.5.RELEASE'
+// https://mvnrepository.com/artifact/org.springframework/spring-jdbc
+        compile group: 'org.springframework', name: 'spring-jdbc', version: '5.0.2.RELEASE'
+// https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp
+        compile group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.1'
 
-    compile group: 'org.springframework', name: 'spring-jdbc', version: '3.1.0.RELEASE'
-
-    // https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp
-    compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.2.2'
 // https://mvnrepository.com/artifact/org.springframework/spring-orm
-    
+        compile group: 'org.springframework', name: 'spring-orm', version: '4.0.3.RELEASE'
+// https://mvnrepository.com/artifact/org.hibernate/hibernate-core
+        compile group: 'org.hibernate', name: 'hibernate-core', version: '5.4.1.Final'
 
+
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+    }
 }

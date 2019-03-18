@@ -17,17 +17,17 @@
         <property name="password" value="Rish@bh42"/>
     </bean>
 
-    <bean id="basicDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+    <bean id="basicDataSource" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="url" value="jdbc:mysql://localhost:3306/test"/>
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="username" value="rishabh"/>
         <property name="password" value="Rish@bh42"/>
         <property name="initialSize" value="2"/>
-        <property name="maxActive" value="5"/>
+        <property name="maxTotal" value="5"/>
     </bean>
 
     <bean id="singleConnectionDataSource" class="org.springframework.jdbc.datasource.SingleConnectionDataSource">
-        <property name="url" value="jdbc:mysql://localhost:3306/test"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/test?useSSL=false"/>
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="username" value="rishabh"/>
         <property name="password" value="Rish@bh42"/>
@@ -35,11 +35,25 @@
     </bean>
 
     <context:annotation-config/>
-    <context:component-scan base-package="answer3and4 answer5to9 answer10and11"/>
+    <context:component-scan base-package="answer3and4 answer5to9 answer10and11 answer12and13"/>
 
 
     <bean class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="answer10and11"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="dialect">org.hibernate.dialect.MySQLDialect</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <tx:annotation-driven transaction-manager="txManager" />
 </beans>

@@ -43,11 +43,7 @@ public class UserDao {
     @Transactional(propagation = Propagation.REQUIRED)
     public void insert() {
 
-        try {
-            Thread.sleep(2000L);
-        } catch (InterruptedException e) {
 
-        }
 
         String sql = "INSERT INTO user2 (username,password,name,age,dob)VALUES(?,?,?,?,?)";
         jdbcTemplate.update(sql, new Object[]{
